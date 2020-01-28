@@ -13,8 +13,8 @@ if (file_exists($_SERVER["DOCUMENT_ROOT"] . "/local/php_interface/include/g-raca
 function checkGoogleCaptchaForm($formid, &$arFields, &$arrVALUES)
 {
     global $APPLICATION;
-    if (isset($_POST['g_recaptcha_response'])) {
-        $gRecaptchaResponse = trim($_POST['g_recaptcha_response']);
+    if (isset($_POST['g_recaptcha_token'])) {
+        $gRecaptchaResponse = trim($_POST['g_recaptcha_token']);
         $recaptcha = new \ReCaptcha\ReCaptcha(RE_SEC_KEY);
         //проверка рекапчи
         $resp = $recaptcha->verify($gRecaptchaResponse);
